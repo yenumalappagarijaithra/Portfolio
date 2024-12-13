@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaithra Yenumalappagari - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding-top: 60px;
+            scroll-padding-top: 20px;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header { 
+            
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        .profile-info h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+        }
+
+        section {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item h3 {
+            color: #3498db;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 30px 0;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+        }
+
+        /* Section Containers */
+        .career-container, .education-container, .skills-container, 
+        .projects-container, .languages-container {
+            margin: 40px 0;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .career-container {
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
+            border-left: 5px solid #3498db;
+        }
+
+        .education-container {
+            background: linear-gradient(to right, #ffffff, #f0f2f5);
+            border-left: 5px solid #e74c3c;
+        }
+
+        .skills-container {
+            background: linear-gradient(to right, #ffffff, #f5f6fa);
+            border-left: 5px solid #2ecc71;
+        }
+
+        .projects-container {
+            background: linear-gradient(to right, #ffffff, #f4f6f8);
+            border-left: 5px solid #f1c40f;
+        }
+
+        .languages-container {
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
+            border-left: 5px solid #9b59b6;
+        }
+
+        /* Content Styling */
+        .career-content, .education-content, .skills-content,
+        .projects-content, .languages-content {
+            padding: 20px;
+        }
+
+        /* Hover Effects */
+        .career-container:hover, .education-container:hover,
+        .skills-container:hover, .projects-container:hover,
+        .languages-container:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Section Headers */
+        section h2 {
+            padding: 15px 20px;
+            margin: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+            font-size: 1.8em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .career-container, .education-container, .skills-container,
+            .projects-container, .languages-container {
+                margin: 20px 0;
+            }
+            
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 60px;
+            margin-bottom: 100px;
+            margin-top: -20px;
+            scroll-padding-top: 20px;
+            scroll-behavior: smooth;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 60%;
+            transform: scale(1.2);
+            border: 3px solid var(--primary-color);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            margin-left: 200px;
+            border-radius: 50%;
+            object-fit:cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            
+            
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: #3498db;
+            color: white;
+        }
+
+        .secondary-btn {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .tertiary-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 20px 40px;
+                margin-top: 0;
+            }
+            
+            .profile-image img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .profile-info h1 {
+                font-size: 2em;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Background animation */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Animation keyframes */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav-links">
+                <a href="#career">Career</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#languages">Contact</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    <img src="profile.jpg" alt="Jaithra Yenumalappagari">
+                </div>
+                <div class="profile-info">
+                    <h1>YENUMALAPPAGARI JAITHRA</h1>
+                    <h2>Full Stack Web Developer</h2>
+                    <div class="contact-info">
+                        <p>jaithrayenumulappa@gmail.com | 9347873038</p>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="https://drive.google.com/file/d/1D4k6n8lDmzYMVj-w7FwtWHIL4bGU7E9S/view?usp=sharing" class="btn primary-btn">Download CV</a>
+                    <a href="mailto:jaithrayenumulappa@gmail.com" class="btn secondary-btn">Contact Me</a>
+                    <a href="https://github.com/yenumalappagarijaithra" class="btn tertiary-btn">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="career" class="career-container">
+            <h2>Career Objective</h2>
+            <div class="career-content">
+                <p>Recent B.Tech graduate with a solid foundation in HTML, CSS, Core Java, and SQL. Eager
+                to apply academic knowledge and hands-on experience from projects and extracurricular
+                activities in a software development position. Resilient and committed to continuous
+                learning, with a passion for designing, developing, and maintaining high-quality software
+                applications. Dedicated to contributing effectively to team success.</p>
+            </div>
+        </section>
+
+        <section id="education" class="education-container">
+            <h2>Education</h2>
+            <div class="education-content">
+                <div class="education-item">
+                    <h3>B.Tech in Electronics and Communication Engineering</h3>
+                    <p>Annamacharya Institute of Technology and Sciences, Tirupati</p>
+                    <p>CGPA: 8.64 | 2020-2024</p>
+                </div>
+                <div class="education-item">
+                    <h3>Intermediate</h3>
+                    <p>Sri Venkateshwara Junior College, Madakasira</p>
+                    <p>CGPA: 9.94 | 2018-2020</p>
+                </div>
+                <div class="education-item">
+                    <h3>Secondary Education</h3>
+                    <p>Surya Vidya Nikethan EM High School</p>
+                    <p>CGPA: 9.5 | 2018</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-container">
+            <h2>Technical Skills</h2>
+            <div class="skills-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul>
+                            <li>Core Java</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Development</h3>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>Visual Studio Code</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <ul>
+                            <li>Versatility</li>
+                            <li>Tolerance</li>
+                            <li>Organizational skills</li>
+                            <li>Communication</li>
+                            <li>Team guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-container">
+            <h2>Projects</h2>
+            <div class="projects-content">
+                <div class="project-item">
+                    <h3>RTL Design and Logic Synthesis of Traffic Light Controller</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" class="languages-container">
+            <h2>Languages</h2>
+            <div class="languages-content">
+                <p>Telugu, Kannada, English</p>
+            </div>
+        </section>
+    </div>
+
+    <footer style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 30px 0; margin-top: 40px;">
+        <div class="container">
+            <div style="text-align: center;">
+                <h3 style="margin-bottom: 15px;">Connect With Me</h3>
+                <p style="margin-bottom: 15px;">Feel free to reach out for collaborations or just a friendly hello</p>
+                <div style="margin-bottom: 20px;">
+                    <p>Email: jaithrayenumulappa@gmail.com</p>
+                    <p>Phone: 9347873038</p>
+                </div>
+                <p style="font-size: 0.9em; margin-top: 20px;">© 2024 Jaithra Yenumalappagari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
